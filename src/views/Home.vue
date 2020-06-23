@@ -1,18 +1,30 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <template v-if="loginType === 'username'">
+      <label>Username</label>
+      <input type="text" placeholder="Enter your name">
+    </template>
+    <template v-if="loginType === 'email'">
+      <label>Email</label>
+      <input type="text" placeholder="Enter your email address">
+    </template>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+  // @ is an alias to /src
 
-export default {
-  name: 'Home',
-  components: {
-    HelloWorld
+  export default {
+    name: 'Home',
+    data () {
+      return {
+        loginType: 'username'
+      }
+    },
+    mounted () {
+      setTimeout(() => {
+        this.loginType = this.loginType === 'username' ? 'email' : 'username'
+      }, 2000)
+    }
   }
-}
 </script>
