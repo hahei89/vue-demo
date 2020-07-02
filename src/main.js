@@ -5,6 +5,9 @@ import store from './store'
 
 /* 关闭生产提示 */
 Vue.config.productionTip = false
+Vue.component('externalUpdate', {
+  template: '<p>external update</p>'
+})
 
 new Vue({
   router,
